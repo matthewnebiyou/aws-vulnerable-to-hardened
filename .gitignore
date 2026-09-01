@@ -9,3 +9,9 @@ crash.*.log
 
 # OS
 .DS_Store
+
+# Prowler's Output Info
+prowler-output/
+
+# Python venv
+prowler-venv/
