@@ -240,10 +240,11 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.web.id]
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
 
+  # Ensuring no encruption in the volume the instance uses
   root_block_device {
     volume_size = 8
     volume_type = "gp3"
-    encrypted   = false # VULNERABLE
+    encrypted   = false
   }
 
   tags = {
@@ -254,7 +255,8 @@ resource "aws_instance" "web" {
 data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
-
+  
+  # Filtering to anything based on x86_64 architecture as that is compatible with t3-micro EC2 instance
   filter {
     name   = "name"
     values = ["al2023-ami-*-x86_64"]
