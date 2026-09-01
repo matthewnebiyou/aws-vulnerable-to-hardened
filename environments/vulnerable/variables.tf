@@ -11,7 +11,7 @@ variable "project_name" {
 }
 
 variable "my_ip" {
-  description = "Public IP in CIDR form (e.g. 203.0.113.5/32). Not used to restrict anything here, since this environment is intentionally open."
+  description = "Public IP in CIDR form. Not used to restrict anything here, since this environment is intentionally open."
   type        = string
   default     = "0.0.0.0/0"
 }
