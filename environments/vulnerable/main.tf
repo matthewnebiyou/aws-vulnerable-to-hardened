@@ -16,7 +16,7 @@ terraform {
 
 # Configure the AWS Provider using the region_name variable defind in the variables file
 provider "aws" {
-  region = var.region_name
+  region = var.aws_region
 }
 
 data "aws_availability_zones" "available" {
